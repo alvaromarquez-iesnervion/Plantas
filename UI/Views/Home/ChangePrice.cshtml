@@ -1,0 +1,63 @@
+﻿@model Domain.DTOs.PlantDetailDTO
+
+@{
+    ViewData["Title"] = "Cambiar Precio";
+}
+
+<h2>Cambiar Precio de Planta</h2>
+
+@if (ViewBag.correcto != null)
+{
+    @if (ViewBag.correcto == true)
+    {
+        <div class="alert alert-success" role="alert">
+            ¡Precio actualizado correctamente!
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            Error: El nuevo precio debe ser mayor que el precio actual.
+        </div>
+    }
+}
+
+<div class="card" style="max-width: 600px;">
+    <div class="card-body">
+        <h5 class="card-title">Detalles de la Planta</h5>
+        
+        <div class="form-group">
+            <label><strong>Nombre:</strong></label>
+            <p>@Model.Name</p>
+        </div>
+
+        <div class="form-group">
+            <label><strong>Descripción:</strong></label>
+            <p>@Model.Description</p>
+        </div>
+
+        <div class="form-group">
+            <label><strong>Categoría:</strong></label>
+            <p>@Model.CategoryName</p>
+        </div>
+
+        <div class="form-group">
+            <label><strong>Precio Actual:</strong></label>
+            <p>@Model.CurrentPrice.ToString()</p>
+        </div>
+
+        <hr />
+
+        <form asp-action="ChangePrice" method="post">
+            <input type="hidden" name="plantId" value="@Model.Id" />
+            
+            <div class="form-group">
+                <label for="newPrice">Nuevo Precio:</label>
+                <input type="text" step="0.01" name="newPrice" id="newPrice" class="form-control" required />
+            </div>
+
+            <button type="submit" class="btn btn-success">Guardar Nuevo Precio</button>
+            <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+        </form>
+    </div>
+</div>

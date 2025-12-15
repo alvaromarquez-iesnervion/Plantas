@@ -1,9 +1,10 @@
 ﻿using Domain.Entities;
+using Domain.Repos;
 using System.Collections.Generic;
 
 namespace Data.repos
 {
-    internal class CategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private List<Category> categories;
 
@@ -26,6 +27,23 @@ namespace Data.repos
     
     
     
-    
+        public List<Category> GetAllCategories()
+        {
+            return categories;
+        }
+        public String  GetCategoryName(int id)
+        {
+            String categoryName= "";
+            foreach (Category category in categories)
+            {
+                if (category.id == id)
+                {
+                    categoryName = category.name;
+                }
+            }
+
+            return categoryName;
+        }
+
     }
 }

@@ -8,21 +8,19 @@ namespace Domain.Entities
 {
     public class Plant
     {
-        private int id { get; set; }
-        private string name { get; set; }
-        private string description { get; set; }
-        private decimal price { get; set; }
-        private int categoryId { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public decimal price { get; set; }
+        public int categoryId { get; set; }
 
-
-        public Plant() 
+        public Plant()
         {
             this.id = 0;
             this.name = "";
             this.description = "";
             this.price = 0;
             this.categoryId = 0;
-
         }
 
         public Plant(int id, string name, string description, decimal price, int categoryId)
@@ -33,6 +31,5 @@ namespace Domain.Entities
             this.price = price;
             this.categoryId = categoryId;
         }
-
     }
 }
