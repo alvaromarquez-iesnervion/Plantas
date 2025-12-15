@@ -7,7 +7,7 @@ namespace Data.repos
 {
     public class PlantRepository : IPlantRepository
     {
-        private List<Plant> plants { get; }
+        private List<Plant> plants { get;  }
 
         public PlantRepository()
         {

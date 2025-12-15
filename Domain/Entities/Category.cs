@@ -12,11 +12,7 @@ namespace Domain.Entities
         public string name { get; set; }
 
 
-        public Category()
-        {
-            id = 0;
-            this.name = "";
-        }
+        
 
         public Category(int id, string name)
         {

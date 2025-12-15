@@ -6,7 +6,7 @@ namespace Data.repos
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private List<Category> categories;
+        private List<Category> categories { get; set; }
 
         public CategoryRepository()
         {
